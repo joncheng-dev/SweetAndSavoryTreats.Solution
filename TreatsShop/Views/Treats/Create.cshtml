@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetAndSavoryTreats.Models.Treat
+
+<p>Complete the form to add a treat to the database.</p>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(treatToAdd => treatToAdd.Name)
+  @Html.TextBoxFor(treatToAdd => treatToAdd.Name)
+
+  <input type="submit" value="Add to Database"/>
+}
+<hr/>
+
+@Html.ActionLink("Back to Treats List", "Index")
