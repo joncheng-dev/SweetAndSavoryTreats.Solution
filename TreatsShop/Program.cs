@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SweetAndSavoryTreats.Models;
@@ -20,6 +21,10 @@ namespace SweetAndSavoryTreats
                           )
                         )
                       );
+
+      builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<SweetAndSavoryTreatsContext>()
+                .AddDefaultTokenProviders();
 
       WebApplication app = builder.Build();
 
