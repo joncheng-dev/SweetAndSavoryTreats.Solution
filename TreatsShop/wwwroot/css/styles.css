@@ -25,7 +25,9 @@ a:hover {
 }
 
 input[type="text"],
-textarea {
+textarea,
+#Password,
+#ConfirmPassword {
   /* background-color: #d1d1d1; */
   background-color: #ffd21c;
 }
