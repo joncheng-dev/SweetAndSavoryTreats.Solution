@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetAndSavoryTreats.Models;
+
+<p>Listed below are all the treats with possible flavor tags to attach to them. First have flavors tags and treats added to the database before linking them to each other.</p>
+<hr/>
+
+<div class="row">
+  <div class="col-6">
+    <h4>Treats</h4>
+    @if(Model["treats"].Length == 0)
+    {
+      <p>No treats are currently in the database.</p>
+    }
+  </div>
+  <div class="col-6">
+    <h4>Flavor Tags</h4>
+    @if(Model["flavors"].Length == 0)
+    {
+      <p>No treats are currently in the database.</p>
+    }
+  </div>
+</div>
