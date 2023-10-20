@@ -57,5 +57,21 @@ namespace SweetAndSavoryTreats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = flavorToUpdate.FlavorId });
     }
+
+    public ActionResult Delete(int id)
+    {
+      ViewBag.Title = "Delete Flavor";
+      Flavor flavorToDelete = _db.Flavors.FirstOrDefault(entry => entry.FlavorId == id);
+      return View(flavorToDelete);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      Flavor flavorToDelete = _db.Flavors.FirstOrDefault(entry => entry.FlavorId == id);
+      _db.Flavors.Remove(flavorToDelete);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

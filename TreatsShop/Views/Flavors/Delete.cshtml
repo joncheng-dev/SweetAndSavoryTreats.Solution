@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetAndSavoryTreats.Models.Flavor
+
+<p>Are you sure you want to remove this flavor from the database?</p>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Remove from Database"/>
+}
+<hr/>
+
+<p>@Html.ActionLink("Back to Flavor Details", "Details", new { id = Model.FlavorId })</p>
