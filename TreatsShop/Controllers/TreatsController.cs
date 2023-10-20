@@ -73,5 +73,28 @@ namespace SweetAndSavoryTreats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult AddFlavorTag(int id)
+    {
+      ViewBag.Title = "Add Flavor Tags";
+      Treat treatToAddTagsTo = _db.Treats.FirstOrDefault(entry => entry.TreatId == id);
+      ViewBag.FlavorsList = _db.Flavors.ToList();
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "TagName");
+      return View(treatToAddTagsTo);
+    }
+
+    [HttpPost]
+    public ActionResult AddFlavorTag(Treat entry, int flavorId)
+    {
+      #nullable enable
+      FlavorTreat? joinEntity = _db.FlavorTreats.FirstOrDefault(join => join.TreatId == entry.TreatId && join.FlavorId == flavorId);
+      #nullable disable
+      if (joinEntity == null && flavorId != 0)
+      {
+        _db.FlavorTreats.Add(new FlavorTreat() { TreatId = entry.TreatId, FlavorId = flavorId });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Details", new { id = entry.TreatId });
+    }
   }
 }
