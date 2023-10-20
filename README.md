@@ -19,17 +19,17 @@
 
 ## Description
 
-- _This app was an exploration in using authentication and authorization for our MVC web applications. We use Identity to handle user authentication -- registering, logging in and out. We added roles for user accounts. Only logged in users may access the create, update, and delete aspects for recipe and category classes._
+- _This app is for an individual weekly project on using authentication and authorization for a C# MVC web applications. I use Identity to handle user authentication -- registering, logging in and out. Only logged in users may access the create, update, and delete aspects for treats and flavor classes. All users may read all treats and flavor details._
 - _Technical Details:_
 
   - _This web application was written using C#, run using .NET framework, its ability to run in a browser enabled using the ASP.NET Core MVC framework, and database query and relationships handled using Entity Framework Core._
-  - _Utilizes a many-to-many relationship between the two classes -- category and recipe._
+  - _Utilizes a many-to-many relationship between the two classes -- treats and flavors._
   - _Data annotations and conditionals are in place to validate user input._
   - _Full CRUD functionality works for both classes._
   - _Styling uses CSS and Bootstrap._
   - _Data storage is managed using MySQL. Entity Framework Core .NET Command-line Tools (or dotnet ef) is used for database version control -- migrations are created to tell MySQL how the database is structured and updated as needed._
 
-- _Below: Schema showing the many-to-many database relationship._
+- _BELOW: Schema showing the many-to-many database relationship._
 <p align="center">
 <img src="./TreatsShop/wwwroot/img/SweetAndSavoryTreatsDbSchema.jpg" alt="screenshot of database schema" width="70%">
 </p>
@@ -96,7 +96,7 @@ _6. In the terminal, while in the project's production directory `TreatsShop`, r
 
 ## Known Bugs
 
-- _Index view of role controller currently doesn't display users that belong to a given role._
+- _Currently, signing in successfully does not display a welcome message._
 
 ## License
 
