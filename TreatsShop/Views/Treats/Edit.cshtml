@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetAndSavoryTreats.Models.Treat
+
+<p>Edit the details below and click Save to keep changes.<p>
+
+@using (@Html.BeginForm())
+{
+  @Html.HiddenFor(entry => entry.TreatId)
+  <p>@Html.LabelFor(entry => entry.Name) @Html.EditorFor(entry => entry.Name) <input type="submit" value="Save"/></p>
+}
+
+<hr/>
+<p>@Html.ActionLink("Back to Treat Details", "Details", new { id = Model.TreatId })
