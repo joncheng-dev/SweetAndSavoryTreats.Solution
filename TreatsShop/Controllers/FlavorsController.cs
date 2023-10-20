@@ -38,14 +38,16 @@ namespace SweetAndSavoryTreats.Controllers
 
     public ActionResult Details(int id)
     {
-      ViewBag.Title = "Flavor Details";
-      Flavor targetFlavor = _db.Flavors.FirstOrDefault(entry => entry.FlavorId == id);
+      ViewBag.Title = "Flavor Tag Details";
+      Flavor targetFlavor = _db.Flavors.Include(entry => entry.JoinEntities)
+                                       .ThenInclude(join => join.Treat)
+                                       .FirstOrDefault(entry => entry.FlavorId == id);
       return View(targetFlavor);
     }
 
     public ActionResult Edit(int id)
     {
-      ViewBag.Title = "Edit Flavor";
+      ViewBag.Title = "Edit Flavor Tag";
       Flavor flavorToEdit = _db.Flavors.FirstOrDefault(entry => entry.FlavorId == id);
       return View(flavorToEdit);
     }
@@ -72,6 +74,29 @@ namespace SweetAndSavoryTreats.Controllers
       _db.Flavors.Remove(flavorToDelete);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    public ActionResult AddTreat(int id)
+    {
+      ViewBag.Title = "Add a Treat to This Flavor Tag";
+      Flavor targetFlavor = _db.Flavors.FirstOrDefault(entry => entry.FlavorId == id);
+      ViewBag.TreatsList = _db.Treats.ToList();
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
+      return View(targetFlavor);
+    }
+
+    [HttpPost]
+    public ActionResult AddTreat(Flavor targetFlavor, int treatId)
+    {
+      #nullable enable
+      FlavorTreat? joinEntity = _db.FlavorTreats.FirstOrDefault(join => join.FlavorId == targetFlavor.FlavorId && join.TreatId == treatId);
+      #nullable disable
+      if(joinEntity == null && treatId != 0)
+      {
+        _db.FlavorTreats.Add(new FlavorTreat() { FlavorId = targetFlavor.FlavorId, TreatId = treatId });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Details", new { id = targetFlavor.FlavorId });
     }
   }
 }

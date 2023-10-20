@@ -78,7 +78,7 @@ namespace SweetAndSavoryTreats.Controllers
 
     public ActionResult AddFlavorTag(int id)
     {
-      ViewBag.Title = "Add Flavor Tags";
+      ViewBag.Title = "Add a Flavor Tag to This Treat";
       Treat treatToAddTagsTo = _db.Treats.FirstOrDefault(entry => entry.TreatId == id);
       ViewBag.FlavorsList = _db.Flavors.ToList();
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "TagName");

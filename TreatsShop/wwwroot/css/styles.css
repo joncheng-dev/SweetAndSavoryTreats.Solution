@@ -4,15 +4,28 @@ body {
   color: #eb6123;
 }
 
+p,
+li {
+  color: #b200ed;
+}
+
 a {
   color: #faf9f6;
   /* color: #512888; */
 }
 
 a:hover {
-  color: #7349ac;
+  color: #ffd21c;
+  /* color: #e4a0f7; */
+  /* color: #7349ac; */
 }
 
 .text-danger {
   font-weight: 600;
+}
+
+input[type="text"],
+textarea {
+  /* background-color: #d1d1d1; */
+  background-color: #ffd21c;
 }
