@@ -39,7 +39,9 @@ namespace SweetAndSavoryTreats.Controllers
     public ActionResult Details(int id)
     {
       ViewBag.Title = "Treat Details";
-      Treat targetTreat = _db.Treats.FirstOrDefault(entry => entry.TreatId == id);
+      Treat targetTreat = _db.Treats.Include(entry => entry.JoinEntities)
+                                    .ThenInclude(join => join.Flavor)
+                                    .FirstOrDefault(entry => entry.TreatId == id);
       return View(targetTreat);
     }
 
@@ -95,6 +97,15 @@ namespace SweetAndSavoryTreats.Controllers
         _db.SaveChanges();
       }
       return RedirectToAction("Details", new { id = entry.TreatId });
+    }
+
+    [HttpPost]
+    public ActionResult DeleteJoin(int joinId)
+    {
+      FlavorTreat joinEntry = _db.FlavorTreats.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+      _db.FlavorTreats.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = joinEntry.TreatId });
     }
   }
 }

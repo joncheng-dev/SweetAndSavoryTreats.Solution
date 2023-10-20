@@ -1,14 +1,16 @@
 body {
+  /* background-color: #9d9d9d; */
   background-color: #2a3439;
-  color: #faf9f6;
+  color: #eb6123;
 }
 
 a {
-  color: #088395;
+  color: #faf9f6;
+  /* color: #512888; */
 }
 
 a:hover {
-  color: #35a29f;
+  color: #7349ac;
 }
 
 .text-danger {
