@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetAndSavoryTreats.Models.Flavor;
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(entry => entry.TagName)
+  @Html.TextBoxFor(entry => entry.TagName)
+  <input type="submit" value="Create Flavor Tag"/>
+}
+
