@@ -1,0 +1,16 @@
+body {
+  background-color: #2a3439;
+  color: #faf9f6;
+}
+
+a {
+  color: #088395;
+}
+
+a:hover {
+  color: #35a29f;
+}
+
+.text-danger {
+  font-weight: 600;
+}
