@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetAndSavoryTreats.Models
+@model SweetAndSavoryTreats.Models.Flavor
+
+<div class="row">
+  <div class="col-5">
+    <h4>Flavor</h4>
+    <p><strong>@Html.DisplayNameFor(chosenFlavor => chosenFlavor.TagName)</strong>: @Html.DisplayFor(chosenFlavor => chosenFlavor.TagName)</p>
+  </div>
+</div>
+<hr/>
+
+<p>@Html.ActionLink("Edit Flavor Details", "Edit", new { id = Model.FlavorId })</p>
+<p>@Html.ActionLink("Delete Flavor Entry", "Delete", new { id = Model.FlavorId })</p>
+<p>@Html.ActionLink("Back to Flavors List", "Index")</p>

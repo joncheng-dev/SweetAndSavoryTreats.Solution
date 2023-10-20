@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetAndSavoryTreats.Models.Flavor
+
+@using (Html.BeginForm())
+{
+  <p>@Html.LabelFor(entry => entry.TagName) @Html.EditorFor(entry => entry.TagName) <input type="submit" value="Save"/></p>
+}
+
+<hr/>
+
+<p>@Html.ActionLink("Back to Flavor Details", "Details", new { id = Model.FlavorId })</p>
