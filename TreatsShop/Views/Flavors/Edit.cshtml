@@ -6,6 +6,7 @@
 
 @using (Html.BeginForm())
 {
+  @Html.HiddenFor(entry => entry.FlavorId)
   <p>@Html.LabelFor(entry => entry.TagName) @Html.EditorFor(entry => entry.TagName) <input type="submit" value="Save"/></p>
 }
 
