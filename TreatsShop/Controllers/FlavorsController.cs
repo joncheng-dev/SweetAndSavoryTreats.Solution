@@ -31,9 +31,17 @@ namespace SweetAndSavoryTreats.Controllers
     [HttpPost]
     public ActionResult Create(Flavor newlyAdded)
     {
-      _db.Flavors.Add(newlyAdded);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      if(ModelState.IsValid)
+      {
+        _db.Flavors.Add(newlyAdded);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
+      else
+      {
+        ViewBag.Title = "Add a Flavor Tag";
+        return View(newlyAdded);
+      }
     }
 
     public ActionResult Details(int id)
@@ -55,9 +63,17 @@ namespace SweetAndSavoryTreats.Controllers
     [HttpPost]
     public ActionResult Edit(Flavor flavorToUpdate)
     {
-      _db.Flavors.Update(flavorToUpdate);
-      _db.SaveChanges();
-      return RedirectToAction("Details", new { id = flavorToUpdate.FlavorId });
+      if(ModelState.IsValid)
+      {
+        _db.Flavors.Update(flavorToUpdate);
+        _db.SaveChanges();
+        return RedirectToAction("Details", new { id = flavorToUpdate.FlavorId });
+      }
+      else
+      {
+        ViewBag.Title = "Edit Flavor Tag";
+        return View(flavorToUpdate);
+      }
     }
 
     public ActionResult Delete(int id)
@@ -97,6 +113,15 @@ namespace SweetAndSavoryTreats.Controllers
         _db.SaveChanges();
       }
       return RedirectToAction("Details", new { id = targetFlavor.FlavorId });
+    }
+
+    [HttpPost]
+    public ActionResult DeleteJoin(int joinId)
+    {
+      FlavorTreat joinEntry = _db.FlavorTreats.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+      _db.FlavorTreats.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = joinEntry.FlavorId });
     }
   }
 }

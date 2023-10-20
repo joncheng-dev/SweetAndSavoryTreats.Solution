@@ -31,9 +31,18 @@ namespace SweetAndSavoryTreats.Controllers
     [HttpPost]
     public ActionResult Create(Treat newAddition)
     {
-      _db.Treats.Add(newAddition);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      if(ModelState.IsValid)
+      {
+        _db.Treats.Add(newAddition);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
+      else
+      {
+        ViewBag.Title = "Add a Treat";
+        return View(newAddition);
+      }
+
     }
 
     public ActionResult Details(int id)
@@ -55,9 +64,18 @@ namespace SweetAndSavoryTreats.Controllers
     [HttpPost]
     public ActionResult Edit(Treat targetTreatToEdit)
     {
-      _db.Treats.Update(targetTreatToEdit);
-      _db.SaveChanges();
-      return RedirectToAction("Details", new { id = targetTreatToEdit.TreatId });
+      if(ModelState.IsValid)
+      {
+        _db.Treats.Update(targetTreatToEdit);
+        _db.SaveChanges();
+        return RedirectToAction("Details", new { id = targetTreatToEdit.TreatId });
+      }
+      else
+      {
+        ViewBag.Title = "Edit Treat Details";
+        return View(targetTreatToEdit);        
+      }
+
     }
 
     public ActionResult Delete(int id)

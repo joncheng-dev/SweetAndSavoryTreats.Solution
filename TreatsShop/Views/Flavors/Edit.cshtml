@@ -4,6 +4,9 @@
 
 @model SweetAndSavoryTreats.Models.Flavor
 
+<p>Edit the details below and click Save to keep changes.<p>
+<p>@Html.ValidationMessageFor(entry => entry.TagName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>  
+
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(entry => entry.FlavorId)
