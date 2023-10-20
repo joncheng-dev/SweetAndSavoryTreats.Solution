@@ -35,5 +35,13 @@ namespace SweetAndSavoryTreats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Details(int id)
+    {
+      ViewBag.Title = "Treat Details";
+      Treat targetTreat = _db.Treats.FirstOrDefault(entry => entry.TreatId == id);
+      return View(targetTreat);
+    }
+
   }
 }
