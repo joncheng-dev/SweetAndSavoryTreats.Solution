@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ using System.Linq;
 
 namespace SweetAndSavoryTreats.Controllers
 {
+  [Authorize]
   public class TreatsController : Controller
   {
     private readonly SweetAndSavoryTreatsContext _db;
@@ -16,6 +18,7 @@ namespace SweetAndSavoryTreats.Controllers
       _db = db;
     }
 
+    [AllowAnonymous]
     public ActionResult Index()
     {
       ViewBag.Title = "List of Treats";
@@ -45,6 +48,7 @@ namespace SweetAndSavoryTreats.Controllers
 
     }
 
+    [AllowAnonymous]
     public ActionResult Details(int id)
     {
       ViewBag.Title = "Treat Details";

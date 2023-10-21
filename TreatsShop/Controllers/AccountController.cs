@@ -49,11 +49,11 @@ namespace SweetAndSavoryTreats.Controllers
         }
         else
         {
+          ViewBag.Title = "Register a new user";
           foreach (IdentityError error in result.Errors)
           {
             ModelState.AddModelError("", error.Description);
           }
-          ViewBag.Title = "Register a new user";
           return View(model);
         }
       }
