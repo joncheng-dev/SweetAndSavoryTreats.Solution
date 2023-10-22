@@ -20,6 +20,18 @@ a:hover {
   /* color: #7349ac; */
 }
 
+.main a {
+  color: #9853eb;
+}
+
+.main a:hover {
+  color: #b200ed;
+}
+
+.main p {
+  color: #ffd21c;
+}
+
 .text-danger {
   font-weight: 600;
 }

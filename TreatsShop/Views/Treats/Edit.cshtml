@@ -4,14 +4,16 @@
 
 @model SweetAndSavoryTreats.Models.Treat
 
+<div class="main">
 <p>Edit the details below and click Save to keep changes.<p>
-<p>@Html.ValidationMessageFor(entry => entry.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>  
+  <p>@Html.ValidationMessageFor(entry => entry.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>  
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(entry => entry.TreatId)
-  <p>@Html.LabelFor(entry => entry.Name) @Html.EditorFor(entry => entry.Name) <input type="submit" value="Save"/></p>
-}
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(entry => entry.TreatId)
+    <p>@Html.LabelFor(entry => entry.Name) @Html.EditorFor(entry => entry.Name) <input type="submit" value="Save"/></p>
+  }
+</div>
 
 <hr/>
 <p>@Html.ActionLink("Back to Treat Details", "Details", new { id = Model.TreatId })

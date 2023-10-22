@@ -4,15 +4,17 @@
 
 @model SweetAndSavoryTreats.Models.Flavor;
 
-<p>Complete the form to add a flavor tag to the database.</p>
-<p>@Html.ValidationMessageFor(entry => entry.TagName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+<div class="main">
+  <p>Complete the form to add a flavor tag to the database.</p>
+  <p>@Html.ValidationMessageFor(entry => entry.TagName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
-@using (Html.BeginForm())
-{
-  @Html.LabelFor(entry => entry.TagName)
-  @Html.TextBoxFor(entry => entry.TagName)
-  <input type="submit" value="Create Flavor Tag"/>
-}
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(entry => entry.TagName)
+    @Html.TextBoxFor(entry => entry.TagName)
+    <input type="submit" value="Create Flavor Tag"/>
+  }
+</div>
 
 <hr/>
 <p>@Html.ActionLink("Back to Flavor Tag List", "Index")</p>

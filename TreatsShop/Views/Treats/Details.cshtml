@@ -5,34 +5,36 @@
 @using SweetAndSavoryTreats.Models
 @model SweetAndSavoryTreats.Models.Treat
 
-<div class="row">
-  <div class="col-5">
-    <h4>Treat</h4>
-    <p><strong>@Html.DisplayNameFor(chosenTreat => chosenTreat.Name)</strong>: @Html.DisplayFor(chosenTreat => chosenTreat.Name)</p>
-  </div>
-  <div class="col-7">
-    <h4>Flavor Tags</h4>
-    @if(@Model.JoinEntities.Count == 0)
-    {
-      <p>This treat currently does not have any flavor tags.</p>
-    }
-    else
-    {
-      <ul>
-        @foreach(FlavorTreat joinEntry in Model.JoinEntities)
-        {
-          <li>@joinEntry.Flavor.TagName
-          @using(Html.BeginForm("DeleteJoin", "Treats"))
+<div class="main">
+  <div class="row">
+    <div class="col-5">
+      <h4>Treat</h4>
+      <p><strong>@Html.DisplayNameFor(chosenTreat => chosenTreat.Name)</strong>: @Html.DisplayFor(chosenTreat => chosenTreat.Name)</p>
+    </div>
+    <div class="col-7">
+      <h4>Flavor Tags</h4>
+      @if(@Model.JoinEntities.Count == 0)
+      {
+        <p>This treat currently does not have any flavor tags.</p>
+      }
+      else
+      {
+        <ul>
+          @foreach(FlavorTreat joinEntry in Model.JoinEntities)
           {
-            @Html.Hidden("joinId", @joinEntry.FlavorTreatId)
-            <input type="submit" value="Remove"/>
+            <li>@joinEntry.Flavor.TagName
+            @using(Html.BeginForm("DeleteJoin", "Treats"))
+            {
+              @Html.Hidden("joinId", @joinEntry.FlavorTreatId)
+              <input type="submit" value="Remove"/>
+            }
+            </li>
           }
-          </li>
-        }
-      </ul>
-    }
+        </ul>
+      }
+    </div>
   </div>
-</div>
+</div>  
 <hr/>
 
 <p>@Html.ActionLink("Add Flavor Tags", "AddFlavorTag", new { id = Model.TreatId })</p>

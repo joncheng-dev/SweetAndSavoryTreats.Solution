@@ -4,24 +4,26 @@
 
 @model SweetAndSavoryTreats.Models.Flavor
 
-<p>Select a treat in the dropdown list below to add to this flavor.</p>
-<div class="row">
-  <div class="col-5">
-    @if(@ViewBag.TreatsList.Count == 0)
-    {
-      <p class="text-danger">It appears the list of treats is empty. Add to the list of treats before attempting to assign it to a flavor.</p>
-      <p>@Html.ActionLink("Add a Treat to Database", "Create", "Treats")</p>
-    }
-    else
-    {
-      @using (Html.BeginForm())
+<div class="main">
+  <p>Select a treat in the dropdown list below to add to this flavor.</p>
+  <div class="row">
+    <div class="col-5">
+      @if(@ViewBag.TreatsList.Count == 0)
       {
-        @Html.HiddenFor(entry => entry.FlavorId)
-        @Html.Label("Select treat")
-        @Html.DropDownList("TreatId")
-        <input type="submit" value="Add Treat to Flavor"/>
+        <p class="text-danger">It appears the list of treats is empty. Add to the list of treats before attempting to assign it to a flavor.</p>
+        <p>@Html.ActionLink("Add a Treat to Database", "Create", "Treats")</p>
       }
-    }
+      else
+      {
+        @using (Html.BeginForm())
+        {
+          @Html.HiddenFor(entry => entry.FlavorId)
+          @Html.Label("Select treat")
+          @Html.DropDownList("TreatId")
+          <input type="submit" value="Add Treat to Flavor"/>
+        }
+      }
+    </div>
   </div>
 </div>
 <hr/>

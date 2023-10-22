@@ -4,15 +4,17 @@
 
 @model SweetAndSavoryTreats.Models.Treat
 
-<p>Complete the form to add a treat to the database.</p>
-<p>@Html.ValidationMessageFor(entry => entry.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+<div class="main">
+  <p>Complete the form to add a treat to the database.</p>
+  <p>@Html.ValidationMessageFor(entry => entry.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
-@using (Html.BeginForm())
-{
-  @Html.LabelFor(treatToAdd => treatToAdd.Name)
-  @Html.TextBoxFor(treatToAdd => treatToAdd.Name)
-  <input type="submit" value="Add to Database"/>
-}
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(treatToAdd => treatToAdd.Name)
+    @Html.TextBoxFor(treatToAdd => treatToAdd.Name)
+    <input type="submit" value="Add to Database"/>
+  }
+</div>
 
 <hr/>
 <p>@Html.ActionLink("Back to Treats List", "Index")</p>

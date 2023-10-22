@@ -4,48 +4,49 @@
 
 @using SweetAndSavoryTreats.Models;
 
-<p>Listed below are all the treats with possible flavor tags to attach to them. First have flavors tags and treats added to the database before linking them to each other.</p>
-<hr/>
-
-<div class="row">
-  <div class="col-6">
-    <h4>Treats</h4>
-    @if(Model["treats"].Length == 0)
-    {
-      <p>No treats are currently in the database.</p>
-    }
-    else
-    {
-      <table class="table table-hover">
-        <tbody>
-          @foreach(Treat entry in Model["treats"])
-          {
-            <tr class="table-dark">
-              <td>@Html.ActionLink(@entry.Name, "Details", "Treats", new { id = @entry.TreatId })</td>
-            </tr>
-          }
-        </tbody>
-      </table>           
-    }    
-  </div>
-  <div class="col-6">
-    <h4>Flavor Tags</h4>
-    @if(Model["flavors"].Length == 0)
-    {
-      <p>No flavor tags are currently in the database.</p>
-    }
-    else
-    {
-      <table class="table table-hover">
-        <tbody>
-          @foreach(Flavor entry in Model["flavors"])
-          {
-            <tr class="table-dark">
-              <td>@Html.ActionLink(@entry.TagName, "Details", "Flavors", new { id = @entry.FlavorId })</td>
-            </tr>
-          }
-        </tbody>
-      </table>           
-    }    
+<div class="main">
+  <p>Listed below are all the treats with possible flavor tags to attach to them. First have flavors tags and treats added to the database before linking them to each other.</p>
+  <hr/>
+  <div class="row">
+    <div class="col-6">
+      <h4>Treats</h4>
+      @if(Model["treats"].Length == 0)
+      {
+        <p>No treats are currently in the database.</p>
+      }
+      else
+      {
+        <table class="table table-hover">
+          <tbody>
+            @foreach(Treat entry in Model["treats"])
+            {
+              <tr class="table-dark">
+                <td>@Html.ActionLink(@entry.Name, "Details", "Treats", new { id = @entry.TreatId })</td>
+              </tr>
+            }
+          </tbody>
+        </table>           
+      }    
+    </div>
+    <div class="col-6">
+      <h4>Flavor Tags</h4>
+      @if(Model["flavors"].Length == 0)
+      {
+        <p>No flavor tags are currently in the database.</p>
+      }
+      else
+      {
+        <table class="table table-hover">
+          <tbody>
+            @foreach(Flavor entry in Model["flavors"])
+            {
+              <tr class="table-dark">
+                <td>@Html.ActionLink(@entry.TagName, "Details", "Flavors", new { id = @entry.FlavorId })</td>
+              </tr>
+            }
+          </tbody>
+        </table>           
+      }    
+    </div>
   </div>
 </div>
