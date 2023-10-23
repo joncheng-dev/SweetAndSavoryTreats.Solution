@@ -5,7 +5,7 @@
 @model SweetAndSavoryTreats.Models.Treat
 
 <div class="main">
-<p>Edit the details below and click Save to keep changes.<p>
+  <p>Edit the details below and click Save to keep changes.<p>
   <p>@Html.ValidationMessageFor(entry => entry.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>  
 
   @using (Html.BeginForm())

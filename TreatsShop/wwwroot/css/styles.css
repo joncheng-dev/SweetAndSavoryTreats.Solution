@@ -1,5 +1,4 @@
 body {
-  /* background-color: #9d9d9d; */
   background-color: #2a3439;
   color: #eb6123;
 }
@@ -10,13 +9,10 @@ p {
 
 a {
   color: #faf9f6;
-  /* color: #512888; */
 }
 
 a:hover {
   color: #ffd21c;
-  /* color: #e4a0f7; */
-  /* color: #7349ac; */
 }
 
 li {
@@ -43,6 +39,5 @@ input[type="text"],
 textarea,
 #Password,
 #ConfirmPassword {
-  /* background-color: #d1d1d1; */
   background-color: #ffd21c;
 }

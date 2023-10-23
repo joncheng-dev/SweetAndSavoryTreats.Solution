@@ -19,7 +19,7 @@
 
 ## Description
 
-- _This app is for an individual weekly project on using authentication and authorization for a C# MVC web applications. I use Identity to handle user authentication -- registering, logging in and out. Only logged in users may access the create, update, and delete aspects for treats and flavor classes. All users may read all treats and flavor details._
+- _This app is for an individual weekly project on using authentication and authorization for a C# MVC web application. Identity is used to handle user authentication -- registering for an account, logging in and out. Only logged in users may access the create, update, and delete aspects for treats and flavor classes. All users may read all treats and flavor details._
 - _Technical Details:_
 
   - _This web application was written using C#, run using .NET framework, its ability to run in a browser enabled using the ASP.NET Core MVC framework, and database query and relationships handled using Entity Framework Core._
@@ -58,7 +58,7 @@ _3. Clone the repository from the GitHub link by entering in this command:_
 
 _4. Navigate to the project's production directory `Treats`, and create a new file called `appsettings.json`._
 
-_5. Within `appsettings.json`, add the following code, replacing the `uid`, and `pwd` values with your username and password for MySQL. Under `database`, add any name that you deem fit -- although `treats_shop_db` is suggested for organization sake and clarity of purpose._
+_5. Within `appsettings.json`, add the following code, replacing the `uid`, and `pwd` values with your username and password for MySQL. Under `database`, add any fitting name -- although `treats_shop_db` is suggested for clarity of purpose._
 
 ```json
 {
@@ -68,7 +68,7 @@ _5. Within `appsettings.json`, add the following code, replacing the `uid`, and 
 }
 ```
 
-_6. In the terminal, while in the project's production directory `TreatsShop`, run the following command. It will utilize the repository's migrations to create and update the database. You may opt to verify that the database has been created successfully in MySQL Workbench._
+_6. In the terminal, while in the project's production directory `TreatsShop`, run the command below. It will utilize the repository's migrations to create and update the database. You may opt to verify that the database has been created successfully in MySQL Workbench._
 
 > ```bash
 > $ dotnet ef database update
@@ -96,7 +96,7 @@ _6. In the terminal, while in the project's production directory `TreatsShop`, r
 
 ## Known Bugs
 
-- _Currently, signing in successfully does not display a welcome message._
+- _Currently no known bugs. Kindly notify me if you happen upon one: joncheng.dev@gmail.com_
 
 ## License
 
